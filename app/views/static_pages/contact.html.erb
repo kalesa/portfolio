@@ -1,2 +1,35 @@
-<h1>StaticPages#contact</h1>
-<p>Find me in app/views/static_pages/contact.html.erb</p>
+
+<div class="skinny_wrapper wrapper_padding">
+<h1>Glad you stopped by...</h1>
+<h2>Say Hello!</h2>
+
+<%= flash[:notice] %>
+
+<%= form_tag("/static_pages/thank_you") do %>
+
+  <div class="row">
+    <div class='col-md-6 col-md-4 text-left'>
+      <div class="form-group">
+        <%= label_tag :name %>
+        <%= text_field_tag :name, nil, class: "form-control", placeholder: "Enter Name" %>
+      </div><!--END form-group-->
+
+      <div class="form-group">
+        <%= label_tag :email, "Email Address" %>
+        <%= text_field_tag :email, nil, class: "form-control", placeholder: "Enter Email" %>
+      </div><!--END form-group-->
+
+      <div class="form-group">
+        <%= label_tag :message %>
+        <%= text_area_tag :message, nil, rows: '5', class: "form-control", placeholder: "Enter Message" %>
+      </div><!--END form-group-->    
+
+        <%= submit_tag("Send", class: "btn btn-default") %> 
+    </div><!--END col-xs-6 col-md-4-->
+  </div><!--END row-->
+  
+  <% end %>
+
+ <%= yield %>
+
+</div><!--END container-->
